@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Café Le Petit | 18.05</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para el visor de imagen */
+        body.menu-viewer {
+            background-color: #e8e6e1; /* Color crema similar al fondo de tu imagen */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-container {
+            width: 100%;
+            max-width: 800px; /* Evita que en PC se vea gigante y pierda calidad */
+            padding: 20px;
+            box-sizing: border-box;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .menu-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .back-nav {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-volver {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-volver:hover {
+            background: #1d1d1f;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tip para móviles: permitir que el usuario toque y vea la imagen completa */
+        @media (max-width: 600px) {
+            .menu-container { padding: 10px; }
+        }
+    </style>
+</head>
+<body class="menu-viewer">
+
+    <nav class="back-nav">
+        <a href="index.html" class="btn-volver">← Volver a mi Portfolio</a>
+    </nav>
+
+    <main class="menu-container">
+        <img src="img/menuCafeteria.png" alt="Menú Café Le Petit" class="menu-image">
+    </main>
+
+    <footer style="padding: 40px; color: #888; font-size: 0.8rem;">
+        Desarrollado por 18.05 Desarrollo Web
+    </footer>
+
+</body>
+</html>

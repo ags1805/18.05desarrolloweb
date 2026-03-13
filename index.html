@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18.05 | Desarrollo Web Profesional</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/logo18.05.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo"><a href="index.html"><img src="img/logo18.05.png" alt="logo18.05"></a></div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Tu negocio merece <br> <span class="typewriter"></span></h1>
+                <p>Diseñamos y desarrollamos sitios web profesionales, rápidos y optimizados.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="btn-primary">Quiero mi presupuesto</a>
+                    <a href="#servicios" class="btn-secondary">Ver servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="services container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones digitales a medida para cada etapa de tu negocio.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🚀</div>
+                    <h3>Landing Pages</h3>
+                    <p>Optimizadas para campañas de Google Ads. Carga ultra rápida y foco en conversiones.</p>
+                    <span class="price-tag">Desde $250.000</span>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🏢</div>
+                    <h3>Webs Profesionales</h3>
+                    <p>Tu empresa abierta las 24hs con un diseño institucional premium.</p>
+                    <span class="price-tag">Desde $500.000</span>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🛒</div>
+                    <h3>E-commerce</h3>
+                    <p>Vendé online con Mercado Pago integrado. Plataformas autogestionables.</p>
+                    <span class="price-tag">Desde U$D 1.000</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio container">
+            <div class="section-title">
+                <h2>Proyectos Destacados</h2>
+                <p>Soluciones reales para negocios que buscan dar el salto digital.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="img/tiempoPSI.png" alt="Web Corporativa">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <span>Desarrollo Web & Ads</span>
+                            <h3>Web corporativa</h3>
+                            <p>Optimización de conversiones y landing page corporativa.</p>
+                            <a href="https://tiempopsi.com/" class="view-project" target="_blank">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img/menuCafeteria.png" alt="Menú Digital Bar">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <span>UX/UI Design</span>
+                            <h3>Menú Digital</h3>
+                            <p>Diseño de carta digital para Gastronomía en Argentina.</p>
+                            <a href="menuCafeteria.html" class="view-project">Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img/tiendaOnline.png" alt="Tienda Online">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <span>Tienda Online</span>
+                            <h3>Almacén</h3>
+                            <p>Venta online con integración de Mercado Pago.</p>
+                            <p>Proximamente...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact container">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Hablemos de tu proyecto</h2>
+                    <p>Llevemos tu negocio al siguiente nivel.</p>
+                    <br>
+                    <div class="info-details">
+                        <div class="info-item"><span class="icon">📍</span>
+                            <p>Buenos Aires, Argentina</p>
+                        </div>
+                        <div class="info-item"><span class="icon">✉️</span>
+                            <p>alvarezagustin23@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/xgonkyoa" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="nombre" name="nombre" required>
+                        <label for="nombre">Nombre y Apellido</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <select id="servicio" name="servicio">
+                            <option value="" disabled selected>¿Qué buscás?</option>
+                            <option value="landing">Landing Page</option>
+                            <option value="webProfesional">Web Profesional</option>
+                            <option value="ecommerce">E-commerce</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                        <label for="mensaje">Tu idea...</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar consulta</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>18.05 - Desarrollo Web &copy; 2026</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5491168878605?text=Hola%2018.05%20Desarrollo%20Web!%20Me%20gustar%C3%ADa%20consultar%20por%20un%20presupuesto%20para%20mi%20proyecto."
+        class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("gdhJ8I4OGpsxkOiIv"); // publi key de emailjs
+        })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
