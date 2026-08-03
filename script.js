@@ -40,43 +40,82 @@ function validarEmail(email) {
 }
 
 const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const emailInput = document.querySelector('#email');
+        const btn = document.querySelector('.btn-submit');
+        const originalText = btn.textContent;
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const emailInput = document.querySelector('#email');
-    const btn = document.querySelector('.btn-submit');
-    const originalText = btn.textContent;
+        if (!validarEmail(emailInput.value)) {
+            showToast('Por favor, ingresá un correo electrónico válido.', 'warning');
+            emailInput.focus();
+            emailInput.style.borderColor = 'red';
+            return; 
+        }
 
-    if (!validarEmail(emailInput.value)) {
-        alert('Por favor, ingresá un correo electrónico válido.');
-        emailInput.focus();
-        emailInput.style.borderColor = 'red';
-        return; 
+        btn.textContent = 'Enviando...';
+        btn.style.opacity = '0.7';
+        btn.disabled = true;
+        emailInput.style.borderColor = '';
+
+        // REEMPLAZÁ ESTOS DOS IDs CON LOS DE TU PANEL
+        const serviceID = 'service_trplj0y';
+        const templateID = 'template_x2usd5e';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                showToast('¡Mensaje enviado con éxito! Nos contactaremos pronto.', 'success');
+                this.reset();
+            }, (err) => {
+                showToast('Error al enviar el mensaje. Por favor, intentá de nuevo o contactanos por WhatsApp.', 'error');
+            })
+            .finally(() => {
+                btn.textContent = originalText;
+                btn.style.opacity = '1';
+                btn.disabled = false;
+            });
+    });
+}
+
+// --- SISTEMA DE TOAST NOTIFICATIONS ---
+function showToast(message, type = 'success') {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
     }
 
-    btn.textContent = 'Enviando...';
-    btn.style.opacity = '0.7';
-    btn.disabled = true;
-    emailInput.style.borderColor = '';
+    let icon = '✨';
+    if (type === 'success') icon = '✅';
+    else if (type === 'error') icon = '❌';
+    else if (type === 'warning') icon = '⚠️';
 
-    // REEMPLAZÁ ESTOS DOS IDs CON LOS DE TU PANEL
-    const serviceID = 'service_trplj0y';
-    const templateID = 'template_x2usd5e';
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `
+        <span class="toast-icon">${icon}</span>
+        <span class="toast-message">${message}</span>
+    `;
 
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-            alert('¡Mensaje enviado con éxito! Te contactaremos pronto.');
-            this.reset();
-        }, (err) => {
-            alert('Error al enviar: ' + JSON.stringify(err));
-        })
-        .finally(() => {
-            btn.textContent = originalText;
-            btn.style.opacity = '1';
-            btn.disabled = false;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toast.addEventListener('transitionend', () => {
+            toast.remove();
+            if (container.children.length === 0) {
+                container.remove();
+            }
         });
-});
+    }, 4000);
+}
 
 // --- LÓGICA MENÚ HAMBURGUESA ---
 const menu = document.querySelector('#mobile-menu');
@@ -91,3 +130,22 @@ document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click
     menu.classList.remove('is-active');
     menuLinks.classList.remove('active');
 }));
+
+// --- LÓGICA ACORDEÓN FAQ ---
+document.addEventListener("DOMContentLoaded", () => {
+    const faqQuestions = document.querySelectorAll(".faq-question");
+    faqQuestions.forEach(question => {
+        question.addEventListener("click", () => {
+            const item = question.parentElement;
+            
+            // Cerrar otros acordeones para mantener ordenado
+            document.querySelectorAll(".faq-item").forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains("active")) {
+                    otherItem.classList.remove("active");
+                }
+            });
+            
+            item.classList.toggle("active");
+        });
+    });
+});
