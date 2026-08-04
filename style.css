@@ -160,7 +160,8 @@ nav a:hover {
 
 /* Services Grid */
 .services {
-    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .section-title {
@@ -313,7 +314,8 @@ nav a:hover {
 
 /* Portfolio Section */
 .portfolio {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .portfolio-grid {
@@ -404,7 +406,8 @@ nav a:hover {
 
 /* Contact Section */
 .contact {
-    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-color: #fcfcfd;
 }
 
